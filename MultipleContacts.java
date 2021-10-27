@@ -1,7 +1,8 @@
 package com.bridgelabz.addressbook;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
-//Uc6
+//Uc7
 public class MultipleContacts {
 	ArrayList<Contacts> contactArrayList;
 	Scanner scanner;
@@ -23,6 +24,27 @@ public class MultipleContacts {
 		System.out.println("Enter Below Details to create new Contact");
 		System.out.println("Enter Full Name");
 		String firstLastName=scanner.nextLine();
+		Iterator<Contacts> i=contactArrayList.iterator();
+		if(contactArrayList.size()>0) {
+			while(i.hasNext()) {
+				String name=i.next().firstLastName;
+				if(name.equalsIgnoreCase(firstLastName)) {
+					System.out.println("You Already have this contacts in address book");
+					break;
+				} else {
+					Contacts c=getUserInput(firstLastName);
+					contactArrayList.add(c);
+					System.out.println("Contact is Successfully Added to AddressBook");
+					break;
+				}
+			}
+		} else {
+			Contacts c=getUserInput(firstLastName);
+			contactArrayList.add(c);
+			System.out.println("Contact is Successfully Added to AddressBook");
+		}
+	}
+	public Contacts getUserInput(String firstLastName) {
 		System.out.println("Enter Address");
 		String address=scanner.nextLine();
 		System.out.println("Enter City");
@@ -37,12 +59,7 @@ public class MultipleContacts {
 		scanner.nextLine();
 		String email=scanner.nextLine();
 		Contacts newContact=new Contacts(firstLastName,address,city,state,zip,phoneNum,email);
-		if(contactArrayList.contains(newContact)) {
-			System.out.println("You Already have this contacts in address book");
-		} else {	
-			contactArrayList.add(newContact);
-			System.out.println("Contact is Successfully Added to AddressBook");
-		}
+		return newContact;
 	}
 	public void showContact() {
 		int i=searchContact();

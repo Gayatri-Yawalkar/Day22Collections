@@ -1,8 +1,8 @@
 package com.bridgelabz.addressbook;
+//Uc7
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-//Uc6
 public class MultipleAddressBook {
 	private Map<String,MultipleContacts> addressBookMap;
 	private MultipleContacts addressb;
