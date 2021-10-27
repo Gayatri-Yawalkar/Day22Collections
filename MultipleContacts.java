@@ -1,5 +1,5 @@
 package com.bridgelabz.addressbook;
-//Uc8
+//Uc9
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -20,7 +20,8 @@ public class MultipleContacts {
 		System.out.println("Enter Your Choice from 1 to 6");
 		return scanner.nextInt();
 	}
-	public void addContact() {
+	public Contacts addContact() {
+		Contacts c=null;
 		System.out.println("Enter Below Details to create new Contact");
 		System.out.println("Enter Full Name");
 		String firstLastName=scanner.nextLine();
@@ -32,17 +33,18 @@ public class MultipleContacts {
 					System.out.println("You Already have this contacts in address book");
 					break;
 				} else {
-					Contacts c=getUserInput(firstLastName);
+					c=getUserInput(firstLastName);
 					contactArrayList.add(c);
 					System.out.println("Contact is Successfully Added to AddressBook");
 					break;
 				}
 			}
 		} else {
-			Contacts c=getUserInput(firstLastName);
+			c=getUserInput(firstLastName);
 			contactArrayList.add(c);
 			System.out.println("Contact is Successfully Added to AddressBook");
 		}
+		return c;
 	}
 	public Contacts getUserInput(String firstLastName) {
 		System.out.println("Enter Address");
