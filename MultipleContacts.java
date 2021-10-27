@@ -1,8 +1,8 @@
 package com.bridgelabz.addressbook;
+//Uc8
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-//Uc7
 public class MultipleContacts {
 	ArrayList<Contacts> contactArrayList;
 	Scanner scanner;
@@ -167,6 +167,7 @@ public class MultipleContacts {
 			choice=contact.displayMenu();
 			switch(choice) {
 				case 1:
+					scanner.nextLine();
 					contact.addContact();
 					break;
 				case 2:
@@ -177,6 +178,7 @@ public class MultipleContacts {
 					break;
 				case 4:
 					contact.showAllContacts();
+					break;
 				case 5:
 					contact.deleteContact();
 					break;
