@@ -1,5 +1,5 @@
 package com.bridgelabz.addressbook;
-//Uc9
+//Uc10
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,8 +26,10 @@ public class MultipleAddressBook {
 		System.out.println("2.View Address Book List");
 		System.out.println("3.Search Person By City");
 		System.out.println("4.Search Person By State");
-		System.out.println("5.Quit");
-		System.out.println("Enter choice from 1 and 5");
+		System.out.println("5.Count Contacts by city");
+		System.out.println("6.Count Contacts by State");
+		System.out.println("7.Quit");
+		System.out.println("Enter choice from 1 and 7");
 		int choice=sc.nextInt();
 		return choice;
 	}
@@ -95,6 +97,16 @@ public class MultipleAddressBook {
 			list.showAllContacts();
 		}
 	}
+	public void countByCity() {
+		for(Map.Entry<String,MultipleContacts> m:cityMap.entrySet()) {
+			System.out.println("Count for "+m.getKey()+" is "+m.getValue().contactArrayList.size());
+		}
+	}
+	public void countByState() {
+		for(Map.Entry<String,MultipleContacts> m:stateMap.entrySet()) {
+			System.out.println("Count for "+m.getKey()+" is "+m.getValue().contactArrayList.size());
+		}
+	}
 	public static void main(String[] args) {
 		MultipleAddressBook mab=new MultipleAddressBook();
 		int choice;
@@ -115,10 +127,16 @@ public class MultipleAddressBook {
 					mab.viewContactByState();
 					break;
 				case 5:
+					mab.countByCity();
+					break;
+				case 6:
+					mab.countByState();
+					break;
+				case 7:
 					flag=1;
 					break;
 				default:
-					System.out.println("You have Entered Wrong Choice.Please enter option between 1 to 5");
+					System.out.println("You have Entered Wrong Choice.Please enter option between 1 to 7");
 			}
 		}
 	}
